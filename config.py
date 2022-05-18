@@ -1,14 +1,8 @@
-from pathlib import Path
+
 import os
-from dotenv import load_dotenv
-load_dotenv()
 
-
-# env_path = Path('.')/'.env'
-# load_dotenv(dotenv_path=env_path)
 
 class Config:
-  SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
   SQLALCHEMY_TRACK_MODIFICATIONS=True
   SECRET_KEY = os.environ.get('SECRET_KEY')
   UPLOADED_PHOTOS_DEST ='app/static/photos'
@@ -24,6 +18,8 @@ class ProdConfig(Config):
   SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 class DevConfig(Config):
+  SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+
   DEBUG = True
 
 config_options = {
