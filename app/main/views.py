@@ -5,3 +5,8 @@ from flask_login import login_required, current_user
 from ..models import User, Claim,Comment, Upvote, Downvote
 from .forms import UpdateProfile, ClaimForm, CommentForm
 from .. import db,photos
+
+@main.route('/')
+def index():
+    title = 'Pet-it'
+    return render_template('index.html',title=title)
