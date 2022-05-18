@@ -39,16 +39,16 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f'User {self.username}'
 
-class Pitch(db.Model):
+class Claim(db.Model):
     __tablename__ = 'claims'
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(255),nullable = False)
+    location = db.Column(db.String(255),nullable = False)
     post = db.Column(db.Text(), nullable = False)
     comment = db.relationship('Comment',backref='claim',lazy='dynamic')
     upvote = db.relationship('Upvote',backref='claim',lazy='dynamic')
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     time = db.Column(db.DateTime, default = datetime.utcnow)
-    category = db.Column(db.String(255), index = True,nullable = False)
     
     def save_p(self):
         db.session.add(self)
@@ -56,7 +56,7 @@ class Pitch(db.Model):
 
         
     def __repr__(self):
-        return f'Pitch {self.post}'
+        return f'Claim {self.post}'
 
 class Comment(db.Model):
     __tablename__ = 'comments'
