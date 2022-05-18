@@ -11,9 +11,10 @@ class User(UserMixin, db.Model):
     secure_password = db.Column(db.String(255),nullable = False)
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
-    claim = db.relationship('Claim', backref='user', lazy='dynamic')
+    claims = db.relationship('Claim', backref='user', lazy='dynamic')
     comment = db.relationship('Comment', backref='user', lazy='dynamic')
     upvote = db.relationship('Upvote',backref='user',lazy='dynamic')
+    
     
 
     @property
@@ -43,8 +44,8 @@ class Pitch(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(255),nullable = False)
     post = db.Column(db.Text(), nullable = False)
-    comment = db.relationship('Comment',backref='pitch',lazy='dynamic')
-    upvote = db.relationship('Upvote',backref='pitch',lazy='dynamic')
+    comment = db.relationship('Comment',backref='claim',lazy='dynamic')
+    upvote = db.relationship('Upvote',backref='claim',lazy='dynamic')
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     time = db.Column(db.DateTime, default = datetime.utcnow)
     category = db.Column(db.String(255), index = True,nullable = False)
@@ -62,7 +63,7 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.Text(),nullable = False)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable = False)
-    claim_id = db.Column(db.Integer,db.ForeignKey('claim.id'),nullable = False)
+    claim_id = db.Column(db.Integer,db.ForeignKey('claims.id'),nullable = False)
 
     def save_c(self):
         db.session.add(self)
@@ -83,7 +84,7 @@ class Upvote(db.Model):
 
     id = db.Column(db.Integer,primary_key=True)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    claim_id = db.Column(db.Integer,db.ForeignKey('claim.id'))
+    claim_id = db.Column(db.Integer,db.ForeignKey('claims.id'))
     
 
     def save(self):
