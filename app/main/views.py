@@ -1,8 +1,8 @@
 from flask import render_template, redirect, url_for, abort, request
 from . import main
 from flask_login import login_required, current_user
-from ..models import User, Claim,Postpet
-from .forms import AdoptionForm,RequestForm
+from ..models import User,Postpet
+from .forms import AdoptionForm,RequestForm,PostForm
 from .. import db,photos
 
 
@@ -50,4 +50,9 @@ def request():
 
     return render_template('request.html',form = form)
 
-    
+@main.route('/post',methods=['GET','POST'])
+def post():
+    dogie=PostForm()
+    return render_template('post.html',dogie=dogie)
+
+

@@ -2,11 +2,6 @@ from flask import Flask, redirect, render_template,url_for
 from .forms import RegistrationForm, LoginForm
 from . import auth
 
-
-@auth.route('/')
-def index():
-    return render_template('index.html')
-
 @auth.route("/register", methods=['GET','POST'])
 def register():
     form =  RegistrationForm()

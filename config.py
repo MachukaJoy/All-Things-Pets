@@ -1,9 +1,4 @@
-from pathlib import Path
 import os
-from dotenv import load_dotenv
-load_dotenv()
-
-
 
 class Config:
   SQLALCHEMY_TRACK_MODIFICATIONS=True
@@ -18,7 +13,6 @@ class Config:
   
   
 class ProdConfig(Config):
-  pass
   SQLALCHEMY_DATABASE_URI =os.environ.get('DATABASE_URL')
 
 class DevConfig(Config):
