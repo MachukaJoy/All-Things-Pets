@@ -1,5 +1,8 @@
-
+from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 
 class Config:
@@ -13,9 +16,10 @@ class Config:
   MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
   MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
   
+  
 class ProdConfig(Config):
-
-  SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+  pass
+  SQLALCHEMY_DATABASE_URI =os.environ.get('DATABASE_URL')
 
 class DevConfig(Config):
   SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')

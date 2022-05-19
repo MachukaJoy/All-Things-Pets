@@ -42,8 +42,8 @@ def request():
         type = form.type.data
         gender = form.gender.data
         breed = form.breed.data
-        location = form.location
-        aob = form.aob.location
+        location = form.location.data
+        aob = form.aob.data
         new_request = User(type,gender,breed,location,aob)
         new_request.save_request()
         return redirect(url_for('main.index'))
