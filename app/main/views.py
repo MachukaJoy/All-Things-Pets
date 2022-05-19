@@ -1,10 +1,10 @@
 from flask import render_template, redirect, url_for, abort, request
 from . import main
 from flask_login import login_required, current_user
-from ..models import User, Claim,Comment, Upvote, Downvote
-from .forms import UpdateProfile, ClaimForm, CommentForm, AdoptionForm,RequestForm
+from ..models import User, Claim,Postpet
+from .forms import AdoptionForm,RequestForm
 from .. import db,photos
-from app import main
+
 
 
 @main.route('/')
@@ -30,7 +30,7 @@ def adopt():
         adopt = form.adopt.data 
         new_adopt = User(type,gender,pet,allergies,veterinary,adopt)
         new_adopt.save_adopt()
-        return redirect(url_for('/'))
+        return redirect(url_for('main.index'))
 
     return render_template('adopt.html',form = form)
 
@@ -46,6 +46,8 @@ def request():
         aob = form.aob.location
         new_request = User(type,gender,breed,location,aob)
         new_request.save_request()
+        return redirect(url_for('main.index'))
+
     return render_template('request.html',form = form)
 
-    return render_template('found.html')
+    
