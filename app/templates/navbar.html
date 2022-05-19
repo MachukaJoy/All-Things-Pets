@@ -1,11 +1,11 @@
 <header>
 	<a href="{{ url_for('.index')}}" class="logo"><i class="fas fa-paw"></i>Pet finder</a>
 
-	<nav class="navbar">
+	<nav class="navbarr">
 		<a href="#">dogs</a>
 		<a href="#">cats</a>
 		<a href="#">profile</a>
-		<a href="#">adopted</a>
+		<a href="{{ url_for('.adopt')}}">adopt</a>
 	</nav>
 	<div class="auth">
 		<a href="#" class="btnn">add pets</a>

@@ -1,5 +1,9 @@
 {% extends 'base.html'%} 
 
+{% block title %}
+Found pets
+{% endblock %}
+
 {% block content %}
     <div class="found">
         <h2>Found pets</h2>
@@ -12,6 +16,9 @@
                     <h4>Casie</h4>
                     <p>2 months old</p>
                     <p>black</p>
+                </div>
+                <div class="request">
+                    <a href="{{ url_for('.request')}}" >Request</a>
                 </div>
             </div>
             <div class="box">

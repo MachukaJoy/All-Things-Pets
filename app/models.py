@@ -11,9 +11,7 @@ class User(UserMixin, db.Model):
     secure_password = db.Column(db.String(255),nullable = False)
     profile_pic_path = db.Column(db.String())
     claims = db.relationship('Claim', backref='user', lazy='dynamic')
-    comment = db.relationship('Comment', backref='user', lazy='dynamic')
-    upvote = db.relationship('Upvote',backref='user',lazy='dynamic')
-    
+
     
 
     @property
