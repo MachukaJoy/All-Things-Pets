@@ -9,7 +9,6 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(255),unique = True,nullable = False)
     email  = db.Column(db.String(255),unique = True,nullable = False)
     secure_password = db.Column(db.String(255),nullable = False)
-    bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     claims = db.relationship('Claim', backref='user', lazy='dynamic')
     comment = db.relationship('Comment', backref='user', lazy='dynamic')
