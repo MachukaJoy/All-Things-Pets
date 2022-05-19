@@ -64,6 +64,7 @@ class Claim(db.Model):
     pet = db.Column(db.String(255),nullable = False)
     allergies = db.Column(db.String(255),nullable = False)
     veterinary = db.Column(db.String(255),nullable = False)
+    adopt = db.Column(db.String(255),nullable = False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     def save_p(self):
@@ -74,48 +75,6 @@ class Claim(db.Model):
     def __repr__(self):
         return f'Claim {self.post}'
 
-
-# class Comment(db.Model):
-#     __tablename__ = 'comments'
-#     id = db.Column(db.Integer, primary_key=True)
-#     comment = db.Column(db.Text(),nullable = False)
-#     user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable = False)
-#     claim_id = db.Column(db.Integer,db.ForeignKey('claims.id'),nullable = False)
-
-#     def save_c(self):
-#         db.session.add(self)
-#         db.session.commit()
-
-#     @classmethod
-#     def get_comments(cls,claim_id):
-#         comments = Comment.query.filter_by(claim_id=claim_id).all()
-
-#         return comments
-
-    
-#     def __repr__(self):
-#         return f'comment:{self.comment}'
-
-# class Upvote(db.Model):
-#     __tablename__ = 'upvotes'
-
-#     id = db.Column(db.Integer,primary_key=True)
-#     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-#     claim_id = db.Column(db.Integer,db.ForeignKey('claims.id'))
-    
-
-#     def save(self):
-#         db.session.add(self)
-#         db.session.commit()
-
-#     @classmethod
-#     def get_upvotes(cls,id):
-#         upvote = Upvote.query.filter_by(claim_id=id).all()
-#         return upvote
-
-
-#     def __repr__(self):
-#         return f'{self.user_id}:{self.claim_id}'
 
 @login_manager.user_loader
 def load_user(user_id):
