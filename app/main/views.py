@@ -1,18 +1,10 @@
-# from flask import render_template, redirect, url_for, abort, request
-# from . import main
-# from flask_login import login_required, current_user
-# from ..models import User, Claim,Comment, Upvote, Downvote
-# from .forms import UpdateProfile, ClaimForm, CommentForm
-#from .. import db,photos
-
-
-from flask import Flask,render_template,redirect,url_for
-from .forms import AdoptionForm,RequestForm
-from ..models import User
+from flask import render_template, redirect, url_for, abort, request
 from . import main
-from .. import db
-
-
+from flask_login import login_required, current_user
+from ..models import User, Claim,Comment, Upvote, Downvote
+from .forms import UpdateProfile, ClaimForm, CommentForm, AdoptionForm,RequestForm
+from .. import db,photos
+from app import main
 
 
 @main.route('/')
@@ -56,5 +48,4 @@ def request():
         new_request.save_request()
     return render_template('request.html',form = form)
 
-
-
+    return render_template('found.html')
