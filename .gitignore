@@ -7,3 +7,4 @@ virtual/
 __pycache__/
 
 instance/
+.env
