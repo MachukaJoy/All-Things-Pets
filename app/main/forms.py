@@ -8,7 +8,7 @@ class AdoptionForm(FlaskForm):
     type = StringField('Type of pet you wish to adopt',validators=[InputRequired()])
     gender = StringField('Gender of pet you wish to adopt',validators=[InputRequired()])
     pet = StringField('Do you own any pets?',validators=[InputRequired()])
-    allergies = RadioField('Label',choices=[('yes','yes'),('no','no')],validators=[InputRequired()])
+    allergies = StringField('Do you have any allergies?',validators=[InputRequired()])
     veterinary = TextAreaField('Veterinary Credentials',validators=[InputRequired()])
     adopt = RadioField('Label',choices=[('adopt','adopt'),('claim','claim')],validators=[InputRequired()])
     submit =SubmitField('Submit')
