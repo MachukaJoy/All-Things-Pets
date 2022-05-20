@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %} 
+    <div class="home-bg">
+        <section class="home" id="home">
+            <div class="content">
+                <h3>Find your pet</h3>
+                <p>Found pets are posted by individuals ,goodluck finding your pet , you can also adopt </p>
+                <a class='btnn' href="{{ url_for('.found')}}">Found pets</a>
+            </div>
+        </section>
+	</div>
+{% endblock %}
+	
+
+
