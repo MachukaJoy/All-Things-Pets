@@ -1,8 +1,9 @@
 {% extends 'auth/auth_base.html' %}
 {% include 'bootstrap_nav.html'%}
-
+{% import 'bootstrap/wtf.html' as wtf %} 
 {% block content %}
 
+<h1 style="text-align: center ;font-size: 5rem;">Login</h1>
 <div class="container mt-6 pet-reg">
 
     <div class="col-md-6 pet-img">
@@ -11,29 +12,22 @@
 
     </div>
     <div class="col-md-6">
-        <form action="" method="post"> {{ form.hidden_tag() }}
-        </form>
+        <!-- Flash message -->
+      {% for message in get_flashed_messages() %}
+          <div class="alert alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ message }}
+          </div>
 
-        <fieldset>
-            <legend> Log in </legend>
+      {% endfor %}
+      <!-- Login form  -->
 
-            <div class="form-group text-black">
-                {{form.email.label(class="form-control-label")}}
-                {{form.email(class="form-control")}}
-            </div>
-            <div class="form-group text-black">
-                {{form.password.label(class="form-control-label")}}
-                {{form.password(class="form-control")}}
-            </div>
+      {{ wtf.quick_form(login_form) }}
 
-            <div class="form-group text-black">
-                {{form.submit(class="btn btn-outline-info mt-4")}}
-            </div>
-        </fieldset>
-    </div>
-
+      <p style="color:#fff;"> Don't  have an account?  <a href="{{url_for('auth.register')}}">Sign up here</a></p>
 
     </div>
+     
 
 
 </div>

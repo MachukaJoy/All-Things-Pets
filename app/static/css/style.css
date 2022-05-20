@@ -127,7 +127,7 @@ header .auth .btnn {
     flex-wrap: wrap;
 }
 .found .box-container .box{
-    flex:1 1 30%;
+    flex:0 1 30%;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
 }
 .found .box-container .box .request{
@@ -147,6 +147,7 @@ header .auth .btnn {
   background: transparent;
   color: #2ecc71;
 }
+
 .found .box-container .box:hover .image img{
     transform: scale(1.1);
 }
