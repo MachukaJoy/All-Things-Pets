@@ -92,7 +92,7 @@ header .auth .btnn {
 }
 .home-bg .home {
 	display: flex;
-	min-height: 80rem;
+	min-height: 88rem;
 	align-items: center;
 }
 .home-bg .home .content {
