@@ -64,7 +64,7 @@ There are not any known bugs as at now. But feel free to let us know should you 
 Should you have any issues or questions, ideas or concerns feel free to reach out to me. Also feel free to make contribution to the code and can contact me at machukajoy@gmail.com
 ## Author
 
-- [Joy Machuka](https://github.com/MachukaJoy)
+- [Joy Machuka, Bonface Kanyenje, Lona Wanjiku and Mark Yegon](https://github.com/MachukaJoy)
 ### Licence
 [MIT LICENSE](https://github.com/MachukaJoy/All-Things-Pets/blob/main/LICENSE)<br>
 
