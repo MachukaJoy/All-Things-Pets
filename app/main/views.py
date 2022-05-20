@@ -27,7 +27,7 @@ def adopt():
     form = AdoptionForm()
     if form.validate_on_submit():
         flash('Your request has been received successfully')
-        return redirect(url_for(main.index))
+        return redirect(url_for('main.index'))
 
     return render_template('adopt.html',form = form)
 
@@ -37,7 +37,7 @@ def request():
     form = RequestForm()
     if form.validate_on_submit():
         flash('Your request has been received successfully')
-        return redirect(url_for(main.index))
+        return redirect(url_for('main.index'))
     return render_template('request.html',form = form)
 
 @main.route('/post',methods=['GET','POST'])
