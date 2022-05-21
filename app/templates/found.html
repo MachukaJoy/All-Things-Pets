@@ -8,69 +8,22 @@ Found pets
     <div class="found">
         <h2>Found pets</h2>
         <div class="box-container">
+            {% for pet in pets %}
             <div class="box">
                 <div class="image">
-                    <img src="../static/images/img1.jpg" alt="">
+                    <img src="/static/photos/{{pet.pic_path}}" alt="">
                 </div>
                 <div class="content">
-                    <h4>Casie</h4>
-                    <p>2 months old</p>
-                    <p>black</p>
+                    <h4>{{pet.name}}</h4>
+                    <p>{{pet.age}}</p>
+                    <p>{{pet.color}}</p>
                 </div>
                 <div class="request">
                     <a href="{{ url_for('.request')}}" >Request</a>
+                    <a style="color: #fff;background-color: red;border: 3px solid red;" href="/pet/delete/{{pet.id}}" >delete</a>
                 </div>
             </div>
-            <div class="box">
-                <div class="image">
-                    <img src="../static/images/img2.jpg" alt="">
-                </div>
-                <div class="content">
-                    <h4>Casie</h4>
-                    <p>2 months old</p>
-                    <p>black</p>
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="../static/images/img3.jpg" alt="">
-                </div>
-                <div class="content">
-                    <h4>Casie</h4>
-                    <p>2 months old</p>
-                    <p>black</p>
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="../static/images/img4.jpg" alt="">
-                </div>
-                <div class="content">
-                    <h4>Casie</h4>
-                    <p>2 months old</p>
-                    <p>black</p>
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="../static/images/img5.jpg" alt="">
-                </div>
-                <div class="content">
-                    <h4>Casie</h4>
-                    <p>2 months old</p>
-                    <p>black</p>
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="../static/images/img6.jpg" alt="">
-                </div>
-                <div class="content">
-                    <h4>Casie</h4>
-                    <p>2 months old</p>
-                    <p>black</p>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 		

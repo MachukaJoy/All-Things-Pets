@@ -8,8 +8,13 @@
 		<a href="{{ url_for('.adopt')}}">adopt</a>
 	</nav>
 	<div class="auth">
-		<a href="#" class="btnn">add pets</a>
-		<a href="#" class="btnn">login</a>
+		{% if current_user.is_authenticated %}
+		<a style="color:white;padding:15px;">{{current_user.username}}</a>
+		<a href="{{ url_for('.post')}}" class="btnn">add pets</a>
+		<a href="{{ url_for('auth.logout')}}" class="btnn">logout</a>
+		{% else %}
+		<a href="{{ url_for('auth.login')}}" class="btnn">login</a>
+		{% endif %}
 	</div>
 
 	<div id="menu" class="fas fa-bars"></div>

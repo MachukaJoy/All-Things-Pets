@@ -1,7 +1,9 @@
 
 from flask_wtf import FlaskForm
-from wtforms import StringField,TextAreaField,SubmitField,RadioField
-from wtforms.validators  import InputRequired
+from wtforms import StringField,TextAreaField,SubmitField,RadioField,FileField
+from flask_wtf.file import FileAllowed
+from wtforms.validators  import InputRequired 
+
 
 
 class AdoptionForm(FlaskForm):
@@ -22,3 +24,9 @@ class RequestForm(FlaskForm):
     aob = TextAreaField('Any additional information',validators=[InputRequired()])
     submit = SubmitField('Submit')
 
+class PostForm(FlaskForm):
+    image=FileField(validators=[FileAllowed(["jpg", "png", "jpeg", "svg","webp"])])
+    name=StringField('Give the pet a name',validators=[InputRequired()])
+    age=StringField('Estimate a age',validators=[InputRequired()])
+    color=StringField('color',validators=[InputRequired()])
+    submit= SubmitField('Submit')
